@@ -1,0 +1,21 @@
+create database shoppingCart;
+
+use shoppingCart;
+
+CREATE TABLE `shopping_cart` (
+   shopping_cart_id int NOT NULL  AUTO_INCREMENT,
+    sub_total BIGINT,
+    tax BIGINT,
+    total BIGINT,
+    PRIMARY KEY (`shopping_cart_id`)
+);
+
+CREATE TABLE shopping_cart_item (
+   ID int NOT NULL  AUTO_INCREMENT,
+   title VARCHAR(255) NULL,
+  price  BIGINT NOT NULL,
+     shopping_cart_id INT,
+    PRIMARY KEY (ID),
+    FOREIGN KEY (shopping_cart_id) REFERENCES shopping_cart(shopping_cart_id)
+);
+
