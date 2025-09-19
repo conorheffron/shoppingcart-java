@@ -5,12 +5,12 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.3.4</version>
+		<version>3.5.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.siriusxm.example.cart</groupId>
 	<artifactId>shoppingcart</artifactId>
-	<version>1.0.1-RELEASE</version>
+	<version>1.0.0-RELEASE</version>
 	<name>shoppingcart</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
@@ -237,7 +237,7 @@
 		<dependency>
 			<groupId>com.opencsv</groupId>
 			<artifactId>opencsv</artifactId>
-			<version>5.9</version>
+			<version>5.12</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.poi</groupId>
@@ -276,4 +276,5 @@
 	</build>
 
 </project>
+
 
