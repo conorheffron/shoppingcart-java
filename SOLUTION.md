@@ -19,5 +19,6 @@
 ![test-coverage](screenshots/test-coverage.png)
 
 ## Convert to Gradle Build & Run with Tests
- - gradle init --type pom
-   ![gradle-build](screenshots/gradle-build.png)
+ - `gradle init --type pom`
+
+![gradle-build](screenshots/gradle-build.png)
