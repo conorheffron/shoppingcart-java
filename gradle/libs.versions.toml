@@ -3,7 +3,7 @@
 
 [versions]
 com-google-code-gson-gson = "2.10.1"
-com-opencsv-opencsv = "5.9"
+com-opencsv-opencsv = "5.12.0"
 com-sun-xml-bind-jaxb-core = "2.3.0"
 com-sun-xml-bind-jaxb-impl = "2.3.0"
 commons-httpclient-commons-httpclient = "3.1"
