@@ -80,7 +80,7 @@ dependencies {
 }
 
 group = "com.siriusxm.example.cart"
-version = "0.0.1-SNAPSHOT"
+version = "1.0.0-RELEASE"
 description = "shoppingcart"
 java.sourceCompatibility = JavaVersion.VERSION_21
 
