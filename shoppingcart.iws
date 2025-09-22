@@ -4,45 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4b3351e7-4b23-4b96-81cc-62083d192ebd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/sql/creates.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshots/gradle-build.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshots/maven-build.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshots/product-info-cornflakes.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshots/product-info-weetabix.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshots/sample-cart-calculation-test.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/screenshots/test-coverage.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shoppingcart.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shoppingcart.ipr" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shoppingcart.iws" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shoppingcart.main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shoppingcart.test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/ApiApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/NounExtractor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/Testme.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/config/TypicalJobConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/constant/Configuration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/constant/GreenBacksGreenConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/controller/ShoppingCartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/dto/ShoppingCart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/dto/ShoppingCartBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/dto/ShoppingCartItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/dto/ShoppingCartItemBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/exceptions/ErrorInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/exceptions/GlobalExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/repository/ShoppingCartItemRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/repository/ShoppingCartRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/siriusxm/example/service/ShoppingCartService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/quartz/quartz_schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/siriusxm/example/controller/ShoppingCartControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/siriusxm/example/service/ShoppingCartServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SOLUTION.md" beforeDir="false" afterPath="$PROJECT_DIR$/SOLUTION.md" afterDir="false" />
-    </list>
+    <list default="true" id="4b3351e7-4b23-4b96-81cc-62083d192ebd" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
