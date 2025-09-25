@@ -13,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -77,7 +76,7 @@ public class ShoppingCartService {
         try (InputStream is = new URL(url).openStream()) {
             JsonNode node = objectMapper.readTree(is);
             return node.get("price").asDouble();
-        } catch (IOException e) {
+        } catch (Exception e) {
             log.error(String.format("Unexpected exception occurred while fetching product=%s.", product), e);
             throw new RuntimeException(e);
         }

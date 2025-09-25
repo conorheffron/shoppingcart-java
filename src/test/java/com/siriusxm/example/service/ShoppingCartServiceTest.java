@@ -179,6 +179,8 @@ public class ShoppingCartServiceTest {
 
     @Test
     public void testFetchPriceThrowsRuntimeException_FailedToReadJSON() throws IOException {
+        shoppingCartService.setObjectMapper(objectMapper);
+
         doThrow(new RuntimeException("Mapper Error")).when(objectMapper).readTree(any(InputStream.class));
 
         assertThrows(RuntimeException.class, () -> shoppingCartService.fetchPrice("cheerios"));
