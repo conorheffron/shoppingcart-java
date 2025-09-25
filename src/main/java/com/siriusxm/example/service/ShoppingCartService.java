@@ -25,12 +25,9 @@ import java.util.List;
 @Service
 public class ShoppingCartService {
 
-    private static final ObjectMapper objectMapper = new ObjectMapper();
+    private ObjectMapper objectMapper = new ObjectMapper();
     private static final String BASE_URL = "https://raw.githubusercontent.com/mattjanks16/shopping-cart-test-data/main/";
     private static final double TAX_RATE = 0.125;
-
-    // Supported products
-    public static final String[] PRODUCTS = { "cheerios", "cornflakes", "frosties", "shreddies", "weetabix" };
 
     @Autowired
     private ShoppingCartRepository shoppingCartRepository;
@@ -45,7 +42,7 @@ public class ShoppingCartService {
 
     @Transactional
     public ShoppingCart post(ShoppingCart shoppingCart) {
-        setTax(shoppingCart);
+        computeTax(shoppingCart);
 
         ShoppingCart save = shoppingCartRepository.save(shoppingCart);
 
@@ -54,7 +51,7 @@ public class ShoppingCartService {
         return save;
     }
 
-    private void setTax(ShoppingCart shoppingCart) {
+    private void computeTax(ShoppingCart shoppingCart) {
         double subTotal = 0d;
         for (ShoppingCartItem shoppingCartItem : shoppingCart.getShoppingCartItems())
             subTotal += shoppingCartItem.getPrice();
@@ -75,7 +72,7 @@ public class ShoppingCartService {
     }
 
     // Fetches price for a product (by name), throws Exception if not found or parsing fails
-    public double fetchPrice(String product) {
+    public double fetchPrice(String product) throws RuntimeException {
         String url = BASE_URL + product.toLowerCase() + ".json";
         try (InputStream is = new URL(url).openStream()) {
             JsonNode node = objectMapper.readTree(is);
