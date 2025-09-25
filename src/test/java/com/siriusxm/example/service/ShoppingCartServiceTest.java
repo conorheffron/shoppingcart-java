@@ -10,6 +10,8 @@ import com.siriusxm.example.repository.ShoppingCartRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -24,6 +26,7 @@ import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.anyString;
@@ -38,31 +41,21 @@ import static org.mockito.Mockito.verifyNoMoreInteractions;
 //@SpringBootTest
 public class ShoppingCartServiceTest {
 
-//    @InjectMocks
+    @InjectMocks
     private ShoppingCartService shoppingCartService;
 
-//    @Mock
+    @Mock
     private ShoppingCartRepository shoppingCartRepository;
 
-//    @Mock
+    @Mock
     private ShoppingCartItemRepository shoppingCartItemRepository;
 
+    @Mock
     private ObjectMapper objectMapper;
 
     @BeforeEach
     public void run() {
-        // service under test
-        shoppingCartService = new ShoppingCartService();
-
-        // mocks
-        shoppingCartRepository = Mockito.mock(ShoppingCartRepository.class);
-        shoppingCartItemRepository = Mockito.mock(ShoppingCartItemRepository.class);
-        objectMapper = Mockito.mock(ObjectMapper.class);
-
-        // set mocks
-        this.shoppingCartService.setShoppingCartRepository(this.shoppingCartRepository);
-        this.shoppingCartService.setShoppingCartItemRepository(this.shoppingCartItemRepository);
-        this.shoppingCartService.setObjectMapper(objectMapper);
+        openMocks(this);
     }
 
     @Test
