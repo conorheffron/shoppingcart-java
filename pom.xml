@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.siriusxm.example.cart</groupId>
 	<artifactId>shoppingcart</artifactId>
-	<version>1.0.2-RELEASE</version>
+	<version>1.0.3-RELEASE</version>
 	<name>shoppingcart</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
@@ -276,8 +276,3 @@
 	</build>
 
 </project>
-
-
-
-
-

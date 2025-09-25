@@ -63,7 +63,7 @@ public class GlobalExceptionHandler {
 	public ErrorInfo handleException(HttpServletRequest request,
 			HttpServletResponse response, Exception ex) {
 		log.error("Handling Exception");
-		return new ErrorInfo(request, ex.getMessage());
+        return new ErrorInfo(request.getRequestURI(), ex.getMessage());
 	}
 
 	@ExceptionHandler(RuntimeException.class)
@@ -72,7 +72,7 @@ public class GlobalExceptionHandler {
 	public ErrorInfo handleRuntimeException(HttpServletRequest request,
 			HttpServletResponse response, Exception ex) {
 		log.error("Handling Runtime Exception");
-		return new ErrorInfo(request, ex.getMessage());
+        return new ErrorInfo(request.getRequestURI(), ex.getMessage());
 	}
 
 	@ExceptionHandler(DataIntegrityViolationException.class)
@@ -81,7 +81,7 @@ public class GlobalExceptionHandler {
 	public ErrorInfo handleDataIntegrityViolationException(HttpServletRequest request,
 			HttpServletResponse response, Exception ex) {
 		log.error("Handling DataIntegrityViolationException Exception");
-		return new ErrorInfo(request, ex.getMessage());
+        return new ErrorInfo(request.getRequestURI(), ex.getMessage());
 	}
 
 	@ExceptionHandler(ConstraintViolationException.class)
@@ -90,7 +90,7 @@ public class GlobalExceptionHandler {
 	public ErrorInfo handleConstraintViolationException(HttpServletRequest request,
 			HttpServletResponse response, Exception ex) {
 		log.error("Handling ConstraintViolationException");
-		return new ErrorInfo(request, ex.getMessage());
+        return new ErrorInfo(request.getRequestURI(), ex.getMessage());
 	}
 
 	@ExceptionHandler(InvalidParameterException.class)
@@ -99,6 +99,6 @@ public class GlobalExceptionHandler {
 	public ErrorInfo handleInvalidParameterException(HttpServletRequest request,
 									 HttpServletResponse response, Exception ex) {
 		log.error("Handling InvalidParameterException");
-		return new ErrorInfo(request, ex.getMessage());
+        return new ErrorInfo(request.getRequestURI(), ex.getMessage());
 	}
 }
