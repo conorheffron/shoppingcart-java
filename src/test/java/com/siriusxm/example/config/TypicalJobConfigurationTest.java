@@ -1,15 +1,13 @@
 package com.siriusxm.example.config;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentMatchers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.BDDMockito;
 import org.mockito.MockedStatic;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.core.env.Environment;
 
@@ -20,8 +18,8 @@ import static org.hamcrest.Matchers.is;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.mockStatic;
+import static org.mockito.MockitoAnnotations.openMocks;
 
-@RunWith(MockitoJUnitRunner.class)
 public class TypicalJobConfigurationTest {
 
     @InjectMocks
@@ -39,13 +37,13 @@ public class TypicalJobConfigurationTest {
     // Static mocks
     private MockedStatic<DataSourceBuilder> dataSourceBuilderMockedStatic = mockStatic(DataSourceBuilder.class);
 
-
-    @Before
+    @BeforeEach
     public void setUp() {
+        openMocks(this);
         BDDMockito.given(DataSourceBuilder.create()).willReturn(dataSourceBuilderMock);
     }
 
-    @After
+    @AfterEach
     public void tearDown() {
         dataSourceBuilderMockedStatic.close();
     }
