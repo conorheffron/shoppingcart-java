@@ -9,7 +9,14 @@ plugins {
     id("io.freefair.lombok") version "8.0.1" // Lombok plugin for Gradle
     id("com.adarshr.test-logger") version "4.0.0"
     id("jacoco")
-    id("org.sonarqube") version "3.5.0.2730" // Use the latest version
+    id("org.sonarqube") version "6.3.1.5724" // Use the latest version
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "conorheffron_shoopingcart-java")
+        property("sonar.organization", "conorheffron")
+    }
 }
 
 repositories {
