@@ -19,20 +19,25 @@ import java.math.RoundingMode;
 import java.net.URL;
 import java.util.List;
 
-@Setter
 @Slf4j
 @Service
 public class ShoppingCartService {
 
+    @Setter
     private ObjectMapper objectMapper = new ObjectMapper();
     private static final String BASE_URL = "https://raw.githubusercontent.com/mattjanks16/shopping-cart-test-data/main/";
     private static final double TAX_RATE = 0.125;
 
-    @Autowired
-    private ShoppingCartRepository shoppingCartRepository;
+    private final ShoppingCartRepository shoppingCartRepository;
+
+    private final ShoppingCartItemRepository shoppingCartItemRepository;
 
     @Autowired
-    private ShoppingCartItemRepository shoppingCartItemRepository;
+    public ShoppingCartService(ShoppingCartRepository shoppingCartRepository,
+                               ShoppingCartItemRepository shoppingCartItemRepository) {
+        this.shoppingCartRepository = shoppingCartRepository;
+        this.shoppingCartItemRepository = shoppingCartItemRepository;
+    }
 
     @Transactional
     public List<ShoppingCart> getAll() {

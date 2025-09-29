@@ -43,6 +43,6 @@ public class ShoppingCartItemBuilder {
     }
 
     public ShoppingCartItem build() {
-        return new ShoppingCartItem(this.id, new BigDecimal(this.price), this.shoppingCart, this.title, this.count);
+        return new ShoppingCartItem(this.id, BigDecimal.valueOf(this.price), this.shoppingCart, this.title, this.count);
     }
 }
