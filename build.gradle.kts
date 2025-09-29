@@ -118,36 +118,5 @@ tasks.withType<JacocoReport> {
 
     reports {
         xml.required.set(true) // Enable XML report generation
-        html.required.set(true) // Enable HTML report generation
-        csv.required.set(false) // Disable CSV report generation
     }
-
-    // Configure the source sets for coverage
-    val sourceSets = project.extensions.getByType<org.gradle.api.tasks.SourceSetContainer>()
-    sourceDirectories.setFrom(sourceSets["main"].allSource.srcDirs)
-    classDirectories.setFrom(
-        fileTree("${buildDir}/classes/java/main") {
-            exclude("**/generated/**") // Exclude generated code if necessary
-        }
-    )
-    executionData.setFrom(fileTree(buildDir) {
-        include("**/jacoco/test.exec") // Include JaCoCo execution data
-    })
-}
-
-// Optional: Add a custom task to aggregate coverage reports for multi-module projects
-tasks.register<JacocoReport>("jacocoAggregateReport") {
-    dependsOn(subprojects.map { it.tasks.withType<Test>() })
-
-    reports {
-        xml.required.set(true)
-        html.required.set(true)
-    }
-
-    val executionDataFiles = subprojects.flatMap { subproject ->
-        subproject.fileTree(subproject.buildDir) {
-            include("**/jacoco/test.exec")
-        }
-    }
-    executionData.setFrom(executionDataFiles)
 }
