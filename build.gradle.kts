@@ -8,6 +8,8 @@ plugins {
     java
     id("io.freefair.lombok") version "8.0.1" // Lombok plugin for Gradle
     id("com.adarshr.test-logger") version "4.0.0"
+    id("jacoco")
+    id("org.sonarqube") version "3.5.0.2730" // Use the latest version
 }
 
 repositories {
@@ -102,4 +104,12 @@ tasks {
     compileJava {
         options.compilerArgs.add("-parameters") // Optional: Enables parameter names in reflection
     }
+}
+
+tasks.withType<JacocoReport> {
+    classDirectories.setFrom(
+        sourceSets.main.get().output.asFileTree.matching {
+//            exclude("org/example/B.class")
+        }
+    )
 }
