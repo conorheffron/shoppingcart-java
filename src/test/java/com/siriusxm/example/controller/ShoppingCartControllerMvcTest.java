@@ -1,0 +1,181 @@
+package com.siriusxm.example.controller;
+
+import com.siriusxm.example.config.TypicalJobConfiguration;
+import com.siriusxm.example.dto.ShoppingCart;
+import com.siriusxm.example.dto.ShoppingCartBuilder;
+import com.siriusxm.example.dto.ShoppingCartItem;
+import com.siriusxm.example.dto.ShoppingCartItemBuilder;
+import com.siriusxm.example.repository.ShoppingCartItemRepository;
+import com.siriusxm.example.repository.ShoppingCartRepository;
+import com.siriusxm.example.service.ShoppingCartService;
+import jakarta.persistence.EntityManagerFactory;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
+
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.verify;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
+public class ShoppingCartControllerMvcTest {
+
+    @Autowired
+    private WebApplicationContext webAppContext;
+
+    private MockMvc mockMvc;
+
+    @InjectMocks
+    private ShoppingCartController shoppingCartController;
+
+    @MockBean
+    private ShoppingCartService shoppingCartService;
+
+    @MockBean
+    private EntityManagerFactory entityManagerFactory;
+
+    @MockBean
+    private TypicalJobConfiguration typicalJobConfiguration;
+
+    @MockBean
+    private ShoppingCartRepository shoppingCartRepository;
+
+    @MockBean
+    private ShoppingCartItemRepository shoppingCartItemRepository;
+
+    @MockBean
+    private JdbcTemplate jdbcTemplate;
+
+    @BeforeAll
+    public void setup() {
+        mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext).build();
+    }
+
+    @Test
+    public void test_get_empty_shopping_cart_success() throws Exception {
+        // given
+        when(shoppingCartService.getAll()).thenReturn(Collections.emptyList());
+
+        // when
+        MockHttpServletResponse response = mockMvc.perform(
+                get("/api/shoppingCart").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn().getResponse();
+
+        // then
+        verify(shoppingCartService).getAll();
+
+        assertThat(response.getStatus(), is(HttpStatus.OK.value()));
+        assertThat(response.getContentAsString(), is("[]"));
+    }
+
+    @Test
+    public void test_get_shopping_cart_success() throws Exception {
+        // given
+        when(shoppingCartService.getAll()).thenReturn(List.of(new ShoppingCartBuilder()
+                .withShoppingCartId(1L)
+                 .withShoppingCartItem(Set.of(new ShoppingCartItemBuilder()
+                                 .withTitle("nesquik")
+                                 .withPrice(3.25)
+                                 .withId(123L)
+                                 .withCount(7).build()))
+                         .build()));
+
+        // when
+        MockHttpServletResponse response = mockMvc.perform(
+                        get("/api/shoppingCart").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn().getResponse();
+
+        // then
+        verify(shoppingCartService).getAll();
+
+        assertThat(response.getStatus(), is(HttpStatus.OK.value()));
+        assertThat(response.getContentAsString(), is("[" +
+                "{\"subTotal\":null," +
+                "\"tax\":null," +
+                "\"total\":null," +
+                "\"shoppingCartItems\":[" +
+                "{\"title\":\"nesquik\"," +
+                "\"price\":3.25," +
+                "\"count\":7" +
+                "}]}]"));
+    }
+
+    @Test
+    public void test_get_shopping_cart_success_with_sample_data() throws Exception {
+        // given
+        ShoppingCartItem shoppingCartItemCf = new ShoppingCartItemBuilder()
+                .withId(99L)
+                .withTitle("cornflakes")
+                .withCount(2)
+                .withPrice(2.52)
+                .build();
+        ShoppingCartItem shoppingCartItemWb = new ShoppingCartItemBuilder()
+                .withId(100L)
+                .withTitle("weetabix")
+                .withPrice(9.98)
+                .withCount(1)
+                .build();
+
+        ShoppingCart shoppingCart = new ShoppingCartBuilder()
+                .withShoppingCartItem(new HashSet<>(Arrays.asList(shoppingCartItemCf, shoppingCartItemWb)))
+                .withSubTotal(15.02)
+                .withTax(1.88)
+                .withTotal(16.90)
+                .build();
+
+        when(shoppingCartService.getAll()).thenReturn(List.of(shoppingCart));
+
+        // when
+        MockHttpServletResponse response = mockMvc.perform(
+                        get("/api/shoppingCart").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andReturn().getResponse();
+
+        // then
+        verify(shoppingCartService).getAll();
+
+        assertThat(response.getStatus(), is(HttpStatus.OK.value()));
+        assertThat(response.getContentAsString(), is("[" +
+                "{" +
+                "\"subTotal\":15.02," +
+                "\"tax\":1.88," +
+                "\"total\":16.9," +
+                "\"shoppingCartItems\":[" +
+                "{" +
+                "\"title\":\"cornflakes\"," +
+                "\"price\":2.52," +
+                "\"count\":2" +
+                "}," +
+                "{" +
+                "\"title\":\"weetabix\"," +
+                "\"price\":9.98," +
+                "\"count\":1" +
+                "}]}]"));
+    }
+}
