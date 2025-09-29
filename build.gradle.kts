@@ -8,6 +8,15 @@ plugins {
     java
     id("io.freefair.lombok") version "8.0.1" // Lombok plugin for Gradle
     id("com.adarshr.test-logger") version "4.0.0"
+    id("jacoco")
+    id("org.sonarqube") version "6.3.1.5724" // Use the latest version
+}
+
+sonar {
+    properties {
+        property("sonar.projectKey", "conorheffron_shoopingcart-java")
+        property("sonar.organization", "conorheffron")
+    }
 }
 
 repositories {
@@ -80,7 +89,7 @@ dependencies {
 }
 
 group = "com.siriusxm.example.cart"
-version = "1.0.7-RELEASE"
+version = "1.0.8-RELEASE"
 description = "shoppingcart"
 java.sourceCompatibility = JavaVersion.VERSION_21
 
@@ -102,4 +111,43 @@ tasks {
     compileJava {
         options.compilerArgs.add("-parameters") // Optional: Enables parameter names in reflection
     }
+}
+
+tasks.withType<JacocoReport> {
+    dependsOn(tasks.withType<Test>()) // Ensure tests run before generating the report
+
+    reports {
+        xml.required.set(true) // Enable XML report generation
+        html.required.set(true) // Enable HTML report generation
+        csv.required.set(false) // Disable CSV report generation
+    }
+
+    // Configure the source sets for coverage
+    val sourceSets = project.extensions.getByType<org.gradle.api.tasks.SourceSetContainer>()
+    sourceDirectories.setFrom(sourceSets["main"].allSource.srcDirs)
+    classDirectories.setFrom(
+        fileTree("${buildDir}/classes/java/main") {
+            exclude("**/generated/**") // Exclude generated code if necessary
+        }
+    )
+    executionData.setFrom(fileTree(buildDir) {
+        include("**/jacoco/test.exec") // Include JaCoCo execution data
+    })
+}
+
+// Optional: Add a custom task to aggregate coverage reports for multi-module projects
+tasks.register<JacocoReport>("jacocoAggregateReport") {
+    dependsOn(subprojects.map { it.tasks.withType<Test>() })
+
+    reports {
+        xml.required.set(true)
+        html.required.set(true)
+    }
+
+    val executionDataFiles = subprojects.flatMap { subproject ->
+        subproject.fileTree(subproject.buildDir) {
+            include("**/jacoco/test.exec")
+        }
+    }
+    executionData.setFrom(executionDataFiles)
 }
