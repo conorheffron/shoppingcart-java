@@ -126,7 +126,7 @@ tasks.withType<JacocoReport> {
     val sourceSets = project.extensions.getByType<org.gradle.api.tasks.SourceSetContainer>()
     sourceDirectories.setFrom(sourceSets["main"].allSource.srcDirs)
     classDirectories.setFrom(
-        fileTree("${buildDir}/classes/kotlin/main") {
+        fileTree("${buildDir}/classes/java/main") {
             exclude("**/generated/**") // Exclude generated code if necessary
         }
     )
