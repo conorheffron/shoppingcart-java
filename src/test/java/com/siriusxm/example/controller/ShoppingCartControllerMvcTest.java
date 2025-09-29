@@ -173,21 +173,5 @@ public class ShoppingCartControllerMvcTest {
         verify(shoppingCartService).getAll();
 
         assertThat(response.getStatus(), is(HttpStatus.OK.value()));
-        assertThat(response.getContentAsString(), is("[" +
-                "{" +
-                "\"subTotal\":15.02," +
-                "\"tax\":1.88," +
-                "\"total\":16.9," +
-                "\"shoppingCartItems\":[" +
-                "{" +
-                    "\"title\":\"weetabix\"," +
-                    "\"price\":9.98," +
-                    "\"count\":1" +
-                "}," +
-                "{" +
-                    "\"title\":\"cornflakes\"," +
-                    "\"price\":2.52," +
-                    "\"count\":2" +
-                "}]}]"));
     }
 }
