@@ -32,11 +32,14 @@ import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
 
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.Matchers.containsInAnyOrder;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.verify;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
@@ -155,6 +158,15 @@ public class ShoppingCartControllerMvcTest {
         MockHttpServletResponse response = mockMvc.perform(
                         get("/api/shoppingCart").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$.[*]").isArray())
+                .andExpect(jsonPath("$.[*]").value(hasSize(1)))
+                .andExpect(jsonPath("$.[*].shoppingCartItems.[*]").value(hasSize(2)))
+                .andExpect(jsonPath("$.[*].subTotal").value(15.02))
+                .andExpect(jsonPath("$.[*].tax").value(1.88))
+                .andExpect(jsonPath("$.[*].total").value(16.90))
+                .andExpect(jsonPath("$.[*].shoppingCartItems.[*].title").value(containsInAnyOrder("cornflakes", "weetabix")))
+                .andExpect(jsonPath("$.[*].shoppingCartItems.[*].count").value(containsInAnyOrder(2, 1)))
+                .andExpect(jsonPath("$.[*].shoppingCartItems.[*].price").value(containsInAnyOrder(2.52, 9.98)))
                 .andReturn().getResponse();
 
         // then
@@ -168,14 +180,14 @@ public class ShoppingCartControllerMvcTest {
                 "\"total\":16.9," +
                 "\"shoppingCartItems\":[" +
                 "{" +
-                "\"title\":\"cornflakes\"," +
-                "\"price\":2.52," +
-                "\"count\":2" +
+                    "\"title\":\"weetabix\"," +
+                    "\"price\":9.98," +
+                    "\"count\":1" +
                 "}," +
                 "{" +
-                "\"title\":\"weetabix\"," +
-                "\"price\":9.98," +
-                "\"count\":1" +
+                    "\"title\":\"cornflakes\"," +
+                    "\"price\":2.52," +
+                    "\"count\":2" +
                 "}]}]"));
     }
 }
