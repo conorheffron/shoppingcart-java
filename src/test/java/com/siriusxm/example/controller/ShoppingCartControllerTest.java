@@ -26,14 +26,11 @@ class ShoppingCartControllerTest {
 
     @BeforeEach
     public void run() {
-        // controller under test
-        this.shoppingCartController = new ShoppingCartController();
-
         // mocks
         this.shoppingCartService = Mockito.mock(ShoppingCartService.class);
 
-        // set mocks
-        this.shoppingCartController.setShoppingCartService(this.shoppingCartService);
+        // controller under test
+        this.shoppingCartController = new ShoppingCartController(this.shoppingCartService);
     }
 
     @Test

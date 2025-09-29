@@ -10,14 +10,17 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Setter
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api")
 public class ShoppingCartController {
 
+  private final ShoppingCartService shoppingCartService;
+
   @Autowired
-  private ShoppingCartService shoppingCartService;
+  public ShoppingCartController(ShoppingCartService shoppingCartService) {
+      this.shoppingCartService = shoppingCartService;
+  }
 
     @GetMapping("/shoppingCart")
   public ResponseEntity<List<ShoppingCart>> getShoppingCarts() {
