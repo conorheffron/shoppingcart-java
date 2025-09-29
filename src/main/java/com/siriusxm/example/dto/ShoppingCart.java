@@ -20,7 +20,8 @@ public class ShoppingCart {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long shopping_cart_id;
+    @Column(name = "shopping_cart_id")
+    private long shoppingCartId;
 
     @OneToMany (fetch = FetchType.EAGER)
     @JoinColumn (name = "shopping_cart_id", referencedColumnName = "shopping_cart_id")
@@ -43,8 +44,8 @@ public class ShoppingCart {
 
     public ShoppingCart() { }
 
-    public ShoppingCart(long shopping_cart_id, Set<ShoppingCartItem> shoppingCartItem, Double subTotal, Double tax, Double total) {
-        this.shopping_cart_id = shopping_cart_id;
+    public ShoppingCart(long shoppingCartId, Set<ShoppingCartItem> shoppingCartItem, Double subTotal, Double tax, Double total) {
+        this.shoppingCartId = shoppingCartId;
         this.shoppingCartItem = shoppingCartItem;
         this.subTotal = subTotal;
         this.tax = tax;
@@ -62,7 +63,7 @@ public class ShoppingCart {
     @Override
     public String toString() {
         return "ShoppingCart{" +
-                "id=" + shopping_cart_id +
+                "id=" + shoppingCartId +
                 ", shoppingCartItems=" + shoppingCartItem +
                 ", subTotal=" + subTotal +
                 ", tax=" + tax +
