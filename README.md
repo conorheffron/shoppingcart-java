@@ -6,6 +6,9 @@
 
 [SonarQube Analysis, Report & JaCoCo Coverage](https://sonarcloud.io/summary/overall?id=conorheffron_shoopingcart-java&branch=main)
 
+<img width="2474" height="1117" alt="image" src="https://github.com/user-attachments/assets/986d48cd-8c20-4fc2-b5bb-f272d6f72296" />
+
+
 
 ## Instructions for the assignment
 ### If cloning the repo
