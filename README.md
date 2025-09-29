@@ -2,6 +2,8 @@
 
 [![Java CI with Gradle](https://github.com/conorheffron/shoopingcart-java/actions/workflows/gradle.yml/badge.svg)](https://github.com/conorheffron/shoopingcart-java/actions/workflows/gradle.yml)
 
+https://sonarcloud.io/summary/overall?id=conorheffron_shoopingcart-java&branch=main
+
 ## Instructions for the assignment
 ### If cloning the repo
 1. Clone this repository on your machine.
