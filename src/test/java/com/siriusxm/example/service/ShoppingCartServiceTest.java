@@ -103,7 +103,7 @@ public class ShoppingCartServiceTest {
     }
 
     @Test
-    testSampleCartCalculation() {
+    void testSampleCartCalculation() {
         // given
         shoppingCartService.setObjectMapper(new ObjectMapper());
         // Add 2 × cornflakes @ 2.52 each
@@ -201,3 +201,4 @@ public class ShoppingCartServiceTest {
         assertEquals(BigDecimal.ZERO.setScale(2, RoundingMode.UP), shoppingCartService.subtotal(cart));
     }
 }
+
