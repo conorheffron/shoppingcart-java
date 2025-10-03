@@ -14,9 +14,6 @@ public class ShoppingCartItemBuilder {
 
     private ShoppingCart shoppingCart;
 
-    public ShoppingCartItemBuilder() {
-    }
-
     public ShoppingCartItemBuilder withId(long id) {
         this.id = id;
         return this;
