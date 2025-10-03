@@ -20,7 +20,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.mockStatic;
 import static org.mockito.MockitoAnnotations.openMocks;
 
-public class TypicalJobConfigurationTest {
+class TypicalJobConfigurationTest {
 
     @InjectMocks
     private TypicalJobConfiguration typicalJobConfiguration;
