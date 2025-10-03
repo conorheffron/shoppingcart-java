@@ -66,13 +66,11 @@ public class ShoppingCartService {
     }
 
     private void setShoppingCartItems(ShoppingCart shoppingCart, ShoppingCart save) {
-        shoppingCart.getShoppingCartItems().forEach(c -> {
-            shoppingCartItemRepository.save(new ShoppingCartItemBuilder()
+        shoppingCart.getShoppingCartItems().forEach(c -> shoppingCartItemRepository.save(new ShoppingCartItemBuilder()
                     .withShoppingCart(save)
                     .withTitle(c.getTitle())
                     .withPrice(c.getPrice())
-                    .build());
-        });
+                    .build()));
     }
 
     // Fetches price for a product (by name), throws Exception if not found or parsing fails
@@ -102,3 +100,4 @@ public class ShoppingCartService {
         return subtotal(shoppingCart).add(tax(shoppingCart)).setScale(2, RoundingMode.UP);
     }
 }
+

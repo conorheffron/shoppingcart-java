@@ -38,18 +38,18 @@ public class TypicalJobConfigurationTest {
     private MockedStatic<DataSourceBuilder> dataSourceBuilderMockedStatic = mockStatic(DataSourceBuilder.class);
 
     @BeforeEach
-    public void setUp() {
+    void setUp() {
         openMocks(this);
         BDDMockito.given(DataSourceBuilder.create()).willReturn(dataSourceBuilderMock);
     }
 
     @AfterEach
-    public void tearDown() {
+    void tearDown() {
         dataSourceBuilderMockedStatic.close();
     }
 
     @Test
-    public void test_getDataSource_success() {
+    void test_getDataSource_success() {
         // given
         when(dataSourceBuilderMock.driverClassName("com.mysql.cj.jdbc.Driver")).thenReturn(dataSourceBuilderMock);
         BDDMockito.given(dataSourceBuilderMock.url(ArgumentMatchers.any())).willReturn(dataSourceBuilderMock);

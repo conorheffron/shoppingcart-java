@@ -53,12 +53,12 @@ public class ShoppingCartServiceTest {
     private ObjectMapper objectMapper;
 
     @BeforeEach
-    public void run() {
+    void run() {
         openMocks(this);
     }
 
     @Test
-    public void testGetAll() {
+    void testGetAll() {
         List<ShoppingCart> shoppingCartList = new ArrayList<>();
         shoppingCartList.add(new ShoppingCartBuilder().build());
         when(this.shoppingCartRepository.findAll()).thenReturn(shoppingCartList);
@@ -73,7 +73,7 @@ public class ShoppingCartServiceTest {
     }
 
     @Test
-    public void testPost() {
+    void testPost() {
         // given (the following test parameters and variables)
         BigDecimal testPrice = new BigDecimal(1);
         String testTitle = "title";
@@ -133,7 +133,7 @@ public class ShoppingCartServiceTest {
     }
 
     @Test
-    public void testGetAllReturnsShoppingCarts() {
+    void testGetAllReturnsShoppingCarts() {
         ShoppingCart cart = new ShoppingCart();
         when(shoppingCartRepository.findAll()).thenReturn(List.of(cart));
 
@@ -143,7 +143,7 @@ public class ShoppingCartServiceTest {
     }
 
     @Test
-    public void testPostSetsTaxAndItems() {
+    void testPostSetsTaxAndItems() {
         ShoppingCartItem item = new ShoppingCartItemBuilder().withPrice(10.0).withTitle("cheerios").build();
         ShoppingCart cart = new ShoppingCartBuilder().withShoppingCartItem(Set.of(item)).build();
         ShoppingCart savedCart = new ShoppingCartBuilder().withShoppingCartId(1L).build();
@@ -161,7 +161,7 @@ public class ShoppingCartServiceTest {
     }
 
     @Test
-    public void testFetchPriceThrowsRuntimeException() {
+    void testFetchPriceThrowsRuntimeException() {
         ShoppingCartService service = spy(shoppingCartService);
 
         doThrow(new RuntimeException("IO Error")).when(service).fetchPrice(anyString());
@@ -170,7 +170,7 @@ public class ShoppingCartServiceTest {
     }
 
     @Test
-    public void testFetchPriceThrowsRuntimeException_FailedToReadJSON() throws IOException {
+    void testFetchPriceThrowsRuntimeException_FailedToReadJSON() throws IOException {
         shoppingCartService.setObjectMapper(objectMapper);
 
         doThrow(new RuntimeException("Mapper Error")).when(objectMapper).readTree(any(InputStream.class));
@@ -179,7 +179,7 @@ public class ShoppingCartServiceTest {
     }
 
     @Test
-    public void testSubtotalTaxTotal() {
+    void testSubtotalTaxTotal() {
         ShoppingCartItem item1 = new ShoppingCartItemBuilder().withPrice(2.5).withCount(2).build();
         ShoppingCartItem item2 = new ShoppingCartItemBuilder().withPrice(1.0).withCount(3).build();
 
@@ -195,9 +195,10 @@ public class ShoppingCartServiceTest {
     }
 
     @Test
-    public void testSubtotalEmptyCart() {
+    void testSubtotalEmptyCart() {
         ShoppingCart cart = new ShoppingCartBuilder().withShoppingCartItem(Collections.emptySet()).build();
 
         assertEquals(BigDecimal.ZERO.setScale(2, RoundingMode.UP), shoppingCartService.subtotal(cart));
     }
 }
+

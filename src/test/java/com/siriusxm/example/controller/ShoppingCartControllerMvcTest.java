@@ -74,12 +74,12 @@ public class ShoppingCartControllerMvcTest {
     private JdbcTemplate jdbcTemplate;
 
     @BeforeAll
-    public void setup() {
+    void setup() {
         mockMvc = MockMvcBuilders.webAppContextSetup(webAppContext).build();
     }
 
     @Test
-    public void test_get_empty_shopping_cart_success() throws Exception {
+    void test_get_empty_shopping_cart_success() throws Exception {
         // given
         when(shoppingCartService.getAll()).thenReturn(Collections.emptyList());
 
@@ -97,7 +97,7 @@ public class ShoppingCartControllerMvcTest {
     }
 
     @Test
-    public void test_get_shopping_cart_success() throws Exception {
+    void test_get_shopping_cart_success() throws Exception {
         // given
         when(shoppingCartService.getAll()).thenReturn(List.of(new ShoppingCartBuilder()
                 .withShoppingCartId(1L)
@@ -130,7 +130,7 @@ public class ShoppingCartControllerMvcTest {
     }
 
     @Test
-    public void test_get_shopping_cart_success_with_sample_data() throws Exception {
+    void test_get_shopping_cart_success_with_sample_data() throws Exception {
         // given
         ShoppingCartItem shoppingCartItemCf = new ShoppingCartItemBuilder()
                 .withId(99L)

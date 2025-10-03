@@ -13,7 +13,7 @@ public class ApiApplicationTest {
     private final MockedStatic<SpringApplication> springApplicationMockedStatic = mockStatic(SpringApplication.class);
 
     @Test
-    public void test_main_success() {
+    void test_main_success() {
         // given
         String[] args = { "test" };
 

@@ -38,10 +38,10 @@ tasks.withType<Test> {
 
 dependencies {
     // Lombok
-    compileOnly("org.projectlombok:lombok:1.18.42") // Lombok dependency
-    annotationProcessor("org.projectlombok:lombok:1.18.42") // Annotation processor
-    testCompileOnly("org.projectlombok:lombok:1.18.42")
-    testAnnotationProcessor("org.projectlombok:lombok:1.18.42")
+    compileOnly(libs.org.projectlombok.lombok) // Lombok dependency
+    annotationProcessor(libs.org.projectlombok.lombok) // Annotation processor
+    testCompileOnly(libs.org.projectlombok.lombok)
+    testAnnotationProcessor(libs.org.projectlombok.lombok)
 
     api(libs.org.springframework.boot.spring.boot.starter)
     api(libs.org.springframework.boot.spring.boot.starter.web)
@@ -89,7 +89,7 @@ dependencies {
 }
 
 group = "com.siriusxm.example.cart"
-version = "1.0.10-RELEASE"
+version = "1.0.11-RELEASE"
 description = "shoppingcart"
 java.sourceCompatibility = JavaVersion.VERSION_21
 
