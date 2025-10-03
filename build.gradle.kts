@@ -40,8 +40,6 @@ dependencies {
     // Lombok
     compileOnly(libs.org.projectlombok.lombok) // Lombok dependency
     annotationProcessor(libs.org.projectlombok.lombok) // Annotation processor
-    testCompileOnly(libs.org.projectlombok.lombok)
-    testAnnotationProcessor(libs.org.projectlombok.lombok)
 
     api(libs.org.springframework.boot.spring.boot.starter)
     api(libs.org.springframework.boot.spring.boot.starter.web)
@@ -77,8 +75,14 @@ dependencies {
     api(libs.org.jxls.jxls.jexcel)
     api(libs.org.dhatim.fastexcel.reader)
     api(libs.org.dhatim.fastexcel)
+
     runtimeOnly(libs.org.springframework.boot.spring.boot.devtools)
     runtimeOnly(libs.mysql.mysql.connector.java)
+
+    testCompileOnly(libs.org.projectlombok.lombok)
+
+    testAnnotationProcessor(libs.org.projectlombok.lombok)
+
     testImplementation(libs.net.sourceforge.jwebunit.jwebunit.htmlunit.plugin)
     // JUnit 5 API for writing tests
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
