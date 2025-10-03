@@ -83,9 +83,9 @@ class ShoppingCartServiceTest {
                 .withTitle(testTitle)
                 .build();
 
-        long test_id = 0L;
+        long testId = 0L;
         ShoppingCart shoppingCart = new ShoppingCartBuilder()
-                .withShoppingCartId(test_id)
+                .withShoppingCartId(testId)
                 .withShoppingCartItem(new HashSet<>(Collections.singleton(shoppingCartItem)))
                 .build();
 
@@ -201,5 +201,6 @@ class ShoppingCartServiceTest {
         assertEquals(BigDecimal.ZERO.setScale(2, RoundingMode.UP), shoppingCartService.subtotal(cart));
     }
 }
+
 
 
