@@ -25,7 +25,7 @@ class ShoppingCartControllerTest {
     private ShoppingCartService shoppingCartService;
 
     @BeforeEach
-    public void run() {
+    void run() {
         // mocks
         this.shoppingCartService = Mockito.mock(ShoppingCartService.class);
 
@@ -91,3 +91,4 @@ class ShoppingCartControllerTest {
         verify(this.shoppingCartService, Mockito.times(1)).post(shoppingCart);
     }
 }
+
