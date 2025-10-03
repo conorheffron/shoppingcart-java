@@ -27,6 +27,7 @@ org-apache-poi-poi-scratchpad = "5.2.5"
 org-dhatim-fastexcel = "0.18.1"
 org-dhatim-fastexcel-reader = "0.18.1"
 org-jxls-jxls-jexcel = "1.0.9"
+org-junit-jupiter-junit-jupiter-api = "5.8.1"
 org-projectlombok-lombok = "1.18.42"
 org-springdoc-springdoc-openapi-starter-webmvc-ui = "2.0.3"
 org-springframework-boot-spring-boot-devtools = "3.5.6"
@@ -69,6 +70,7 @@ org-apache-poi-poi-scratchpad = { module = "org.apache.poi:poi-scratchpad", vers
 org-dhatim-fastexcel = { module = "org.dhatim:fastexcel", version.ref = "org-dhatim-fastexcel" }
 org-dhatim-fastexcel-reader = { module = "org.dhatim:fastexcel-reader", version.ref = "org-dhatim-fastexcel-reader" }
 org-jxls-jxls-jexcel = { module = "org.jxls:jxls-jexcel", version.ref = "org-jxls-jxls-jexcel" }
+org-junit-jupiter-junit-jupiter-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "org-junit-jupiter-junit-jupiter-api" }
 org-projectlombok-lombok = { module = "org.projectlombok:lombok", version.ref = "org-projectlombok-lombok" }
 org-springdoc-springdoc-openapi-starter-webmvc-ui = { module = "org.springdoc:springdoc-openapi-starter-webmvc-ui", version.ref = "org-springdoc-springdoc-openapi-starter-webmvc-ui" }
 org-springframework-boot-spring-boot-devtools = { module = "org.springframework.boot:spring-boot-devtools", version.ref = "org-springframework-boot-spring-boot-devtools" }

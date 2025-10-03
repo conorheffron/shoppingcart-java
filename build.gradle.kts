@@ -37,12 +37,10 @@ tasks.withType<Test> {
 }
 
 dependencies {
-    // Lombok
-    compileOnly(libs.org.projectlombok.lombok) // Lombok dependency
     annotationProcessor(libs.org.projectlombok.lombok) // Annotation processor
-    testCompileOnly(libs.org.projectlombok.lombok)
-    testAnnotationProcessor(libs.org.projectlombok.lombok)
 
+    compileOnly(libs.org.projectlombok.lombok) // Lombok dependency
+    
     api(libs.org.springframework.boot.spring.boot.starter)
     api(libs.org.springframework.boot.spring.boot.starter.web)
     api(libs.net.sourceforge.jwebunit.jwebunit.core)
@@ -77,19 +75,24 @@ dependencies {
     api(libs.org.jxls.jxls.jexcel)
     api(libs.org.dhatim.fastexcel.reader)
     api(libs.org.dhatim.fastexcel)
+
     runtimeOnly(libs.org.springframework.boot.spring.boot.devtools)
     runtimeOnly(libs.mysql.mysql.connector.java)
+
+    testAnnotationProcessor(libs.org.projectlombok.lombok)
+
+    testCompileOnly(libs.org.projectlombok.lombok)
+
     testImplementation(libs.net.sourceforge.jwebunit.jwebunit.htmlunit.plugin)
-    // JUnit 5 API for writing tests
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.8.1")
-    // JUnit 5 Engine for running tests
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+    testImplementation(libs.org.junit.jupiter.junit.jupiter.api) // JUnit 5 API for writing tests
     testImplementation(libs.org.springframework.boot.spring.boot.starter.test)
     testImplementation(libs.org.springframework.security.spring.security.test)
+
+    testRuntimeOnly(libs.org.junit.jupiter.junit.jupiter.api) // JUnit 5 Engine for running tests
 }
 
 group = "com.siriusxm.example.cart"
-version = "1.0.11-RELEASE"
+version = "1.0.12-RELEASE"
 description = "shoppingcart"
 java.sourceCompatibility = JavaVersion.VERSION_21
 

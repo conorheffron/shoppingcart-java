@@ -45,7 +45,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-public class ShoppingCartControllerMvcTest {
+class ShoppingCartControllerMvcTest {
 
     @Autowired
     private WebApplicationContext webAppContext;

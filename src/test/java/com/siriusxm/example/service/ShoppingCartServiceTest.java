@@ -9,7 +9,6 @@ import com.siriusxm.example.repository.ShoppingCartItemRepository;
 import com.siriusxm.example.repository.ShoppingCartRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
@@ -29,6 +28,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.atLeastOnce;
 import static org.mockito.Mockito.anyString;
 import static org.mockito.Mockito.doThrow;
 import static org.mockito.Mockito.times;
@@ -38,7 +38,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
-public class ShoppingCartServiceTest {
+class ShoppingCartServiceTest {
 
     @InjectMocks
     private ShoppingCartService shoppingCartService;
@@ -83,13 +83,13 @@ public class ShoppingCartServiceTest {
                 .withTitle(testTitle)
                 .build();
 
-        long test_id = 0L;
+        long testId = 0L;
         ShoppingCart shoppingCart = new ShoppingCartBuilder()
-                .withShoppingCartId(test_id)
+                .withShoppingCartId(testId)
                 .withShoppingCartItem(new HashSet<>(Collections.singleton(shoppingCartItem)))
                 .build();
 
-        when(this.shoppingCartRepository.save(Mockito.eq(shoppingCart))).thenReturn(shoppingCart);
+        when(this.shoppingCartRepository.save(shoppingCart)).thenReturn(shoppingCart);
 
         // when (test unit or 'post' method is run)
         ShoppingCart result = this.shoppingCartService.post(shoppingCart);
@@ -98,8 +98,8 @@ public class ShoppingCartServiceTest {
         // then (check result and behaviour of function)
         assertEquals(shoppingCart, result);
 
-        verify(this.shoppingCartRepository, times(1)).save(Mockito.eq(shoppingCart));
-        verify(this.shoppingCartItemRepository, Mockito.atLeastOnce()).save(Mockito.any(ShoppingCartItem.class));
+        verify(this.shoppingCartRepository, times(1)).save(shoppingCart);
+        verify(this.shoppingCartItemRepository, atLeastOnce()).save(any(ShoppingCartItem.class));
     }
 
     @Test
@@ -201,4 +201,7 @@ public class ShoppingCartServiceTest {
         assertEquals(BigDecimal.ZERO.setScale(2, RoundingMode.UP), shoppingCartService.subtotal(cart));
     }
 }
+
+
+
 

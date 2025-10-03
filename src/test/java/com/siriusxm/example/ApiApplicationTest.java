@@ -7,7 +7,7 @@ import org.springframework.boot.SpringApplication;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.mockStatic;
 
-public class ApiApplicationTest {
+class ApiApplicationTest {
 
     // mocks
     private final MockedStatic<SpringApplication> springApplicationMockedStatic = mockStatic(SpringApplication.class);
