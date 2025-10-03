@@ -1,10 +1,10 @@
-# shoopingcart-java
+# shoppingcart-java
 
-[![Java CI with Gradle](https://github.com/conorheffron/shoopingcart-java/actions/workflows/gradle.yml/badge.svg)](https://github.com/conorheffron/shoopingcart-java/actions/workflows/gradle.yml)
+[![Java CI with Gradle](https://github.com/conorheffron/shoopingcart-java/actions/workflows/gradle.yml/badge.svg)](https://github.com/conorheffron/shoppingcart-java/actions/workflows/gradle.yml)
 
 [![SonarQube](https://github.com/conorheffron/shoppingcart-java/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/conorheffron/shoppingcart-java/actions/workflows/sonarcloud.yml)
 
-[SonarQube Analysis, Report & JaCoCo Coverage](https://sonarcloud.io/summary/overall?id=conorheffron_shoopingcart-java&branch=main)
+[SonarQube Analysis, Report & JaCoCo Coverage](https://sonarcloud.io/summary/overall?id=conorheffron_shoppingcart-java&branch=main)
 
 <img width="2474" height="1117" alt="image" src="https://github.com/user-attachments/assets/986d48cd-8c20-4fc2-b5bb-f272d6f72296" />
 
