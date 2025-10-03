@@ -48,8 +48,6 @@ class ShoppingCartControllerTest {
 
     @Test
     void testGetShoppingCarts_Exception() {
-        List<ShoppingCart> shoppingCartList = new ArrayList<>();
-
         when(shoppingCartService.getAll()).thenThrow(new RuntimeException("Failed to call getAll shipping carts"));
 
         ResponseEntity<List<ShoppingCart>> result = shoppingCartController.getShoppingCarts();
@@ -91,4 +89,5 @@ class ShoppingCartControllerTest {
         verify(this.shoppingCartService, Mockito.times(1)).post(shoppingCart);
     }
 }
+
 
