@@ -14,7 +14,7 @@ plugins {
 
 sonar {
     properties {
-        property("sonar.projectKey", "conorheffron_shoopingcart-java")
+        property("sonar.projectKey", "conorheffron_shoppingcart-java")
         property("sonar.organization", "conorheffron")
     }
 }
