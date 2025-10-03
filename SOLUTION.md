@@ -1,4 +1,4 @@
-# shoopingcart-java
+# shoppingcart-java
 
 [![Java CI with Gradle](https://github.com/conorheffron/shoopingcart-java/actions/workflows/gradle.yml/badge.svg)](https://github.com/conorheffron/shoopingcart-java/actions/workflows/gradle.yml)
 
