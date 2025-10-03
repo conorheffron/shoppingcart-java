@@ -14,21 +14,6 @@ public class ShoppingCartBuilder {
 
     private Double total;
 
-    public ShoppingCartBuilder() {
-    }
-
-    public ShoppingCartBuilder(long shoppingCartId,
-                               Set<ShoppingCartItem> shoppingCartItem,
-                               Double subTotal,
-                               Double tax,
-                               Double total) {
-        this.shoppingCartId = shoppingCartId;
-        this.shoppingCartItem = shoppingCartItem;
-        this.subTotal = subTotal;
-        this.tax = tax;
-        this.total = total;
-    }
-
     public ShoppingCartBuilder withShoppingCartId(long shoppingCartId) {
         this.shoppingCartId = shoppingCartId;
         return this;
