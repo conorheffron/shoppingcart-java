@@ -1,10 +1,10 @@
 # shoppingcart-java
 
-[![Java CI with Gradle](https://github.com/conorheffron/shoopingcart-java/actions/workflows/gradle.yml/badge.svg)](https://github.com/conorheffron/shoopingcart-java/actions/workflows/gradle.yml)
+[![Java CI with Gradle](https://github.com/conorheffron/shoppingcart-java/actions/workflows/gradle.yml/badge.svg)](https://github.com/conorheffron/shoppingcart-java/actions/workflows/gradle.yml)
 
 [![SonarQube](https://github.com/conorheffron/shoppingcart-java/actions/workflows/sonarcloud.yml/badge.svg)](https://github.com/conorheffron/shoppingcart-java/actions/workflows/sonarcloud.yml)
 
-[SonarQube Analysis, Report & JaCoCo Coverage](https://sonarcloud.io/summary/overall?id=conorheffron_shoopingcart-java&branch=main)
+[SonarQube Analysis, Report & JaCoCo Coverage](https://sonarcloud.io/summary/overall?id=conorheffron_shoppingcart-java&branch=main)
 
 ## Tech:
  - Java 21 (LTS), Maven 3.9.9, Gradle 8.1, IntelliJ IDEA 2025.2.1 (Community Edition), SonarQube
