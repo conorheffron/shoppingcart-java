@@ -38,7 +38,7 @@ import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.verifyNoMoreInteractions;
 
-public class ShoppingCartServiceTest {
+class ShoppingCartServiceTest {
 
     @InjectMocks
     private ShoppingCartService shoppingCartService;
@@ -201,4 +201,5 @@ public class ShoppingCartServiceTest {
         assertEquals(BigDecimal.ZERO.setScale(2, RoundingMode.UP), shoppingCartService.subtotal(cart));
     }
 }
+
 
