@@ -6,6 +6,8 @@
 
 [SonarQube Analysis, Report & JaCoCo Coverage](https://sonarcloud.io/summary/overall?id=conorheffron_shoppingcart-java&branch=main)
 
+[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=conorheffron_shoppingcart-java)](https://sonarcloud.io/summary/new_code?id=conorheffron_shoppingcart-java)
+
 <img width="2474" height="1117" alt="image" src="https://github.com/user-attachments/assets/986d48cd-8c20-4fc2-b5bb-f272d6f72296" />
 
 
