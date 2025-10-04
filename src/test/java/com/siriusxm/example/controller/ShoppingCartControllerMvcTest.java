@@ -35,6 +35,7 @@ import java.util.Set;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.containsInAnyOrder;
+import static org.hamcrest.Matchers.hasItem;
 import static org.mockito.Mockito.when;
 import static org.mockito.Mockito.verify;
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -101,6 +102,9 @@ class ShoppingCartControllerMvcTest {
         // given
         when(shoppingCartService.getAll()).thenReturn(List.of(new ShoppingCartBuilder()
                 .withShoppingCartId(1L)
+                        .withSubTotal(22.75)
+                        .withTax(2.84)
+                        .withTotal(25.59)
                  .withShoppingCartItem(Set.of(new ShoppingCartItemBuilder()
                                  .withTitle("nesquik")
                                  .withPrice(3.25)
@@ -112,21 +116,21 @@ class ShoppingCartControllerMvcTest {
         MockHttpServletResponse response = mockMvc.perform(
                         get("/api/shoppingCart").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
+                .andExpect(jsonPath("$.[*]").isArray())
+                .andExpect(jsonPath("$.[*]").value(hasSize(1)))
+                .andExpect(jsonPath("$.[*].shoppingCartItems.[*]").value(hasSize(1)))
+                .andExpect(jsonPath("$.[*].subTotal").value(22.75))
+                .andExpect(jsonPath("$.[*].tax").value(2.84))
+                .andExpect(jsonPath("$.[*].total").value(25.59))
+                .andExpect(jsonPath("$.[*].shoppingCartItems.[*].title").value(hasItem("nesquik")))
+                .andExpect(jsonPath("$.[*].shoppingCartItems.[*].count").value(hasItem(7)))
+                .andExpect(jsonPath("$.[*].shoppingCartItems.[*].price").value(hasItem(3.25)))
                 .andReturn().getResponse();
 
         // then
         verify(shoppingCartService).getAll();
 
         assertThat(response.getStatus(), is(HttpStatus.OK.value()));
-        assertThat(response.getContentAsString(), is("[" +
-                "{\"subTotal\":null," +
-                "\"tax\":null," +
-                "\"total\":null," +
-                "\"shoppingCartItems\":[" +
-                "{\"title\":\"nesquik\"," +
-                "\"price\":3.25," +
-                "\"count\":7" +
-                "}]}]"));
     }
 
     @Test
