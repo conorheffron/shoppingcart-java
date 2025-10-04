@@ -44,9 +44,6 @@ public class ShoppingCartItem {
     @Transient
     private int count;
 
-    public ShoppingCartItem() {
-    }
-
     public ShoppingCartItem(long id, BigDecimal price, ShoppingCart shoppingCart, String title, int count) {
         this.id = id;
         this.price = price.doubleValue();
@@ -54,13 +51,5 @@ public class ShoppingCartItem {
         this.title = title;
         this.count = count;
     }
-
-    @Override
-    public String toString() {
-        return "ShoppingCartItem{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", price=" + price +
-                '}';
-    }
 }
+
