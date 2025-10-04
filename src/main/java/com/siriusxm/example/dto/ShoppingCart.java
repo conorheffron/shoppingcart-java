@@ -55,19 +55,4 @@ public class ShoppingCart {
     public Set<ShoppingCartItem> getShoppingCartItems() {
         return shoppingCartItem;
     }
-
-    public void setShoppingCartItems(Set<ShoppingCartItem> shoppingCartItems) {
-        this.shoppingCartItem = shoppingCartItems;
-    }
-
-    @Override
-    public String toString() {
-        return "ShoppingCart{" +
-                "id=" + shoppingCartId +
-                ", shoppingCartItems=" + shoppingCartItem +
-                ", subTotal=" + subTotal +
-                ", tax=" + tax +
-                ", total=" + total +
-                '}';
-    }
 }

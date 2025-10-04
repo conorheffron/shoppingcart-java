@@ -58,13 +58,16 @@ class GlobalExceptionHandlerTest {
 
     @Test
     void testHandleIOException() {
-        IOException ex = new IOException("IO error occurred");
-        Mockito.when(mockRequest.getRequestURL()).thenReturn(new StringBuffer("https://test.url-io.com"));
+        String ioErrorMsg = "IO error occurred";
+        IOException ex = new IOException(ioErrorMsg);
+        String testUrl = "https://test.url-io.com";
+        Mockito.when(mockRequest.getRequestURL()).thenReturn(new StringBuffer(testUrl));
 
         ErrorInfo errorInfo = handler.handleIOException(mockRequest, mockResponse, ex);
 
         assertNotNull(errorInfo);
-        assertEquals("IO error occurred", errorInfo.getMessage());
+        assertEquals(ioErrorMsg, errorInfo.getMessage());
+        assertEquals(testUrl, errorInfo.getUrl());
         Mockito.verify(mockRequest).getRequestURL();
     }
 
