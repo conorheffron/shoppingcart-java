@@ -42,8 +42,6 @@ public class ShoppingCart {
     @Column(name = "total")
     private Double total;
 
-//    private String buyer;
-
     public ShoppingCart() { }
 
     public ShoppingCart(long shoppingCartId, Set<ShoppingCartItem> shoppingCartItem, Double subTotal, Double tax, Double total) {
