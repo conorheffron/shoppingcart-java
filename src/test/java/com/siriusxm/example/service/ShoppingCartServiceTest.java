@@ -1,9 +1,9 @@
 package com.siriusxm.example.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.siriusxm.example.dto.ShoppingCart;
+import com.siriusxm.example.model.ShoppingCart;
 import com.siriusxm.example.dto.ShoppingCartBuilder;
-import com.siriusxm.example.dto.ShoppingCartItem;
+import com.siriusxm.example.model.ShoppingCartItem;
 import com.siriusxm.example.dto.ShoppingCartItemBuilder;
 import com.siriusxm.example.repository.ShoppingCartItemRepository;
 import com.siriusxm.example.repository.ShoppingCartRepository;
