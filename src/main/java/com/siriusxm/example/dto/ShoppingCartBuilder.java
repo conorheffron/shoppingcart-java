@@ -1,5 +1,8 @@
 package com.siriusxm.example.dto;
 
+import com.siriusxm.example.model.ShoppingCart;
+import com.siriusxm.example.model.ShoppingCartItem;
+
 import java.util.Set;
 
 public class ShoppingCartBuilder {

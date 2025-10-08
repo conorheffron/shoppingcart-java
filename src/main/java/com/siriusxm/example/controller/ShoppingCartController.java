@@ -1,6 +1,6 @@
 package com.siriusxm.example.controller;
 
-import com.siriusxm.example.dto.ShoppingCart;
+import com.siriusxm.example.model.ShoppingCart;
 import com.siriusxm.example.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,5 +42,4 @@ public class ShoppingCartController {
       return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
-
 }
