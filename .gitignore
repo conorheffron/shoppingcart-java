@@ -21,3 +21,5 @@ target/
 /build
 /.gradle/buildOutputCleanup
 /out
+/.idea
+/.gradle
