@@ -12,6 +12,9 @@
  - Java 21 (LTS), Maven 3.9.9, Gradle 8.1, IntelliJ IDEA 2025.2.1 (Community Edition), SonarQube, JaCoCo
 
 ## Maven Build
+```
+shoppingcart % ./gradlew clean build test
+```
 ![maven-build](screenshots/maven-build.png)
 
 ## Preview Product Info by Cereal ID(S) to find associated single unit 'price'
