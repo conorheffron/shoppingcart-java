@@ -83,14 +83,14 @@ dependencies {
 
     testCompileOnly(libs.org.projectlombok.lombok)
 
+    testRuntimeOnly(libs.junit.platform.launcher)
+    testRuntimeOnly(libs.junit.platform.engine)
+    testRuntimeOnly(libs.junit.platform.launcher)
+
     testImplementation(libs.net.sourceforge.jwebunit.jwebunit.htmlunit.plugin)
     testImplementation(libs.org.springframework.boot.spring.boot.starter.test)
     testImplementation(libs.org.springframework.security.spring.security.test)
-
-    testRuntimeOnly(libs.junit.platform.launcher)
     testImplementation(libs.org.junit.jupiter)// JUnit 5 API for writing tests
-    testRuntimeOnly(libs.junit.platform.engine)
-    testRuntimeOnly(libs.junit.platform.launcher)
 }
 
 group = "com.siriusxm.example.cart"
