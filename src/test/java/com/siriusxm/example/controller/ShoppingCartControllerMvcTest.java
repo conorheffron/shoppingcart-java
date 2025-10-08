@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.mock.mockito.MockitoBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -56,22 +56,22 @@ class ShoppingCartControllerMvcTest {
     @InjectMocks
     private ShoppingCartController shoppingCartController;
 
-    @MockBean
+    @MockitoBean
     private ShoppingCartService shoppingCartService;
 
-    @MockBean
+    @MockitoBean
     private EntityManagerFactory entityManagerFactory;
 
-    @MockBean
+    @MockitoBean
     private TypicalJobConfiguration typicalJobConfiguration;
 
-    @MockBean
+    @MockitoBean
     private ShoppingCartRepository shoppingCartRepository;
 
-    @MockBean
+    @MockitoBean
     private ShoppingCartItemRepository shoppingCartItemRepository;
 
-    @MockBean
+    @MockitoBean
     private JdbcTemplate jdbcTemplate;
 
     @BeforeAll
