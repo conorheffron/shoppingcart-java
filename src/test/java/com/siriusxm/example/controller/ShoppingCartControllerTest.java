@@ -1,6 +1,6 @@
 package com.siriusxm.example.controller;
 
-import com.siriusxm.example.dto.ShoppingCart;
+import com.siriusxm.example.model.ShoppingCart;
 import com.siriusxm.example.dto.ShoppingCartBuilder;
 import com.siriusxm.example.service.ShoppingCartService;
 import org.junit.jupiter.api.BeforeEach;
