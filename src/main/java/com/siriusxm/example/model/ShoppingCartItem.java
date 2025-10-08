@@ -1,4 +1,4 @@
-package com.siriusxm.example.dto;
+package com.siriusxm.example.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
