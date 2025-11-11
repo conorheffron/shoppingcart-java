@@ -18,7 +18,7 @@
 
 ## Maven Build
 ```
-shoppingcart % ./gradlew clean build test
+./gradlew clean build test
 ```
 ![maven-build](screenshots/maven-build.png)
 
