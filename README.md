@@ -13,6 +13,9 @@
 ## Tech:
  - Java 21 (LTS), Maven 3.9, Gradle 8.1, IntelliJ IDEA 2025.2.1 (Community Edition), SonarQube, JaCoCo
 
+## Test Data
+ - https://conorheffron.github.io/shopping-cart-test-data/products/
+
 ## Maven Build
 ```
 shoppingcart % ./gradlew clean build test
