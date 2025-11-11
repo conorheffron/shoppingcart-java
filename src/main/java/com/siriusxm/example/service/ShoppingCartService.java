@@ -25,7 +25,7 @@ public class ShoppingCartService {
 
     @Setter
     private ObjectMapper objectMapper = new ObjectMapper();
-    private static final String BASE_URL = "https://raw.githubusercontent.com/mattjanks16/shopping-cart-test-data/main/";
+    private static final String BASE_URL = "https://conorheffron.github.io/shopping-cart-test-data/products/";
     private static final double TAX_RATE = 0.125;
 
     private final ShoppingCartRepository shoppingCartRepository;
@@ -100,4 +100,5 @@ public class ShoppingCartService {
         return subtotal(shoppingCart).add(tax(shoppingCart)).setScale(2, RoundingMode.UP);
     }
 }
+
 
