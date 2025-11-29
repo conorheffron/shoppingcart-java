@@ -3,6 +3,7 @@ package com.siriusxm.example.controller;
 import com.siriusxm.example.model.ShoppingCart;
 import com.siriusxm.example.service.ShoppingCartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,7 @@ public class ShoppingCartController {
 
       return new ResponseEntity<>(shoppingCartList, HttpStatus.OK);
     } catch (Exception e) {
-      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+      return new ResponseEntity<>((HttpHeaders) null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
@@ -39,7 +40,7 @@ public class ShoppingCartController {
 
       return new ResponseEntity<>(shoppingCartResponse, HttpStatus.ACCEPTED);
     } catch (Exception e) {
-      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+      return new ResponseEntity<>((HttpHeaders) null, HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 }

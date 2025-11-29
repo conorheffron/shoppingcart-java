@@ -44,7 +44,6 @@ dependencies {
     api(libs.javax.xml.bind.jaxb.api)
     api(libs.com.sun.xml.bind.jaxb.core)
     api(libs.com.sun.xml.bind.jaxb.impl)
-    api(libs.org.springframework.boot.spring.boot.starter.security)
     api(libs.io.jsonwebtoken.jjwt)
     api(libs.org.springframework.boot.spring.boot.starter.validation)
     api(libs.commons.httpclient.commons.httpclient)
@@ -74,6 +73,7 @@ dependencies {
 
     runtimeOnly(libs.org.springframework.boot.spring.boot.devtools)
     runtimeOnly(libs.mysql.mysql.connector.java)
+    runtimeOnly(libs.com.h2.h2.db)
 
     testAnnotationProcessor(libs.org.projectlombok.lombok)
 
@@ -85,7 +85,6 @@ dependencies {
 
     testImplementation(libs.net.sourceforge.jwebunit.jwebunit.htmlunit.plugin)
     testImplementation(libs.org.springframework.boot.spring.boot.starter.test)
-    testImplementation(libs.org.springframework.security.spring.security.test)
     testImplementation(libs.org.junit.jupiter)// JUnit 5 API for writing tests
 }
 

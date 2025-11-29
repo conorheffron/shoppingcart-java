@@ -10,8 +10,7 @@ import javax.sql.DataSource;
 @Configuration
 public class TypicalJobConfiguration {
 
-
-    @Value("${spring.datasource.url.short}")
+    @Value("${spring.datasource.url}")
     private String springdatasourceurl;
 
     @Value("${spring.datasource.username}")
@@ -22,8 +21,9 @@ public class TypicalJobConfiguration {
 
     @Bean
     public DataSource getDataSource() {
+
         return DataSourceBuilder.create()
-                .driverClassName("com.mysql.cj.jdbc.Driver")
+                .driverClassName("org.h2.Driver")
                 .url(springdatasourceurl)
                 .username(springdatasourceusername)
                 .password(springdatasourcepassword)
