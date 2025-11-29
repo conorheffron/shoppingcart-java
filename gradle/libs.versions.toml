@@ -7,6 +7,7 @@ com-opencsv-opencsv = "5.12.0"
 com-sun-xml-bind-jaxb-core = "4.0.6"
 com-sun-xml-bind-jaxb-impl = "4.0.6"
 commons-httpclient-commons-httpclient = "3.1"
+com-h2-database = "2.1.214"
 io-jsonwebtoken-jjwt = "0.13.0"
 javax-xml-bind-jaxb-api = "2.3.1"
 junit-platform = "6.0.1"
@@ -15,7 +16,7 @@ net-sourceforge-jwebunit-jwebunit = "3.3"
 net-sourceforge-jwebunit-jwebunit-core = "3.3"
 net-sourceforge-jwebunit-jwebunit-htmlunit-plugin = "3.3"
 org-apache-commons-commons-csv = "1.14.1"
-org-apache-commons-commons-lang3 = "3.19.0"
+org-apache-commons-commons-lang3 = "3.20.0"
 org-apache-httpcomponents-httpclient = "4.5.14"
 org-apache-logging-log4j-log4j-api = "2.25.2"
 org-apache-logging-log4j-log4j-core = "2.25.2"
@@ -23,23 +24,21 @@ org-apache-logging-log4j-log4j-to-slf4j = "2.25.2"
 org-apache-opennlp-opennlp-tools = "2.5.6.1"
 org-apache-poi-poi = "5.4.1"
 org-apache-poi-poi-ooxml = "5.4.1"
-org-apache-poi-poi-scratchpad = "5.4.1"
+org-apache-poi-poi-scratchpad = "5.5.0"
 org-dhatim-fastexcel = "0.19.0"
 org-dhatim-fastexcel-reader = "0.19.0"
 org-jxls-jxls-jexcel = "1.0.9"
 org-junit-jupiter = "6.0.1"
 org-projectlombok-lombok = "1.18.42"
 org-springdoc-springdoc-openapi-starter-webmvc-ui = "2.8.14"
-org-springframework-boot-spring-boot-devtools = "3.5.7"
-org-springframework-boot-spring-boot-starter = "3.5.7"
-org-springframework-boot-spring-boot-starter-data-jpa = "3.5.7"
-org-springframework-boot-spring-boot-starter-quartz = "3.5.7"
-org-springframework-boot-spring-boot-starter-security = "3.5.7"
-org-springframework-boot-spring-boot-starter-test = "3.5.7"
-org-springframework-boot-spring-boot-starter-thymeleaf = "3.5.7"
-org-springframework-boot-spring-boot-starter-validation = "3.5.7"
-org-springframework-boot-spring-boot-starter-web = "3.5.7"
-org-springframework-security-spring-security-test = "7.0.0"
+org-springframework-boot-spring-boot-devtools = "4.0.0"
+org-springframework-boot-spring-boot-starter = "4.0.0"
+org-springframework-boot-spring-boot-starter-data-jpa = "4.0.0"
+org-springframework-boot-spring-boot-starter-quartz = "4.0.0"
+org-springframework-boot-spring-boot-starter-test = "4.0.0"
+org-springframework-boot-spring-boot-starter-thymeleaf = "4.0.0"
+org-springframework-boot-spring-boot-starter-validation = "4.0.0"
+org-springframework-boot-spring-boot-starter-web = "4.0.0"
 org-webjars-bootstrap = "5.3.8"
 org-webjars-jquery = "3.7.1"
 org-webjars-webjars-locator-core = "0.59"
@@ -51,6 +50,7 @@ com-sun-xml-bind-jaxb-core = { module = "com.sun.xml.bind:jaxb-core", version.re
 com-sun-xml-bind-jaxb-impl = { module = "com.sun.xml.bind:jaxb-impl", version.ref = "com-sun-xml-bind-jaxb-impl" }
 commons-httpclient-commons-httpclient = { module = "commons-httpclient:commons-httpclient", version.ref = "commons-httpclient-commons-httpclient" }
 io-jsonwebtoken-jjwt = { module = "io.jsonwebtoken:jjwt", version.ref = "io-jsonwebtoken-jjwt" }
+com-h2-h2-db  = { module = "com.h2database:h2", version.ref = "com-h2-database" }
 javax-xml-bind-jaxb-api = { module = "javax.xml.bind:jaxb-api", version.ref = "javax-xml-bind-jaxb-api" }
 junit-platform-launcher = { module = "org.junit.platform:junit-platform-launcher", version.ref = "junit-platform" }
 junit-platform-engine = { module = "org.junit.platform:junit-platform-engine", version.ref = "junit-platform" }
@@ -78,12 +78,10 @@ org-springframework-boot-spring-boot-devtools = { module = "org.springframework.
 org-springframework-boot-spring-boot-starter = { module = "org.springframework.boot:spring-boot-starter", version.ref = "org-springframework-boot-spring-boot-starter" }
 org-springframework-boot-spring-boot-starter-data-jpa = { module = "org.springframework.boot:spring-boot-starter-data-jpa", version.ref = "org-springframework-boot-spring-boot-starter-data-jpa" }
 org-springframework-boot-spring-boot-starter-quartz = { module = "org.springframework.boot:spring-boot-starter-quartz", version.ref = "org-springframework-boot-spring-boot-starter-quartz" }
-org-springframework-boot-spring-boot-starter-security = { module = "org.springframework.boot:spring-boot-starter-security", version.ref = "org-springframework-boot-spring-boot-starter-security" }
 org-springframework-boot-spring-boot-starter-test = { module = "org.springframework.boot:spring-boot-starter-test", version.ref = "org-springframework-boot-spring-boot-starter-test" }
 org-springframework-boot-spring-boot-starter-thymeleaf = { module = "org.springframework.boot:spring-boot-starter-thymeleaf", version.ref = "org-springframework-boot-spring-boot-starter-thymeleaf" }
 org-springframework-boot-spring-boot-starter-validation = { module = "org.springframework.boot:spring-boot-starter-validation", version.ref = "org-springframework-boot-spring-boot-starter-validation" }
 org-springframework-boot-spring-boot-starter-web = { module = "org.springframework.boot:spring-boot-starter-web", version.ref = "org-springframework-boot-spring-boot-starter-web" }
-org-springframework-security-spring-security-test = { module = "org.springframework.security:spring-security-test", version.ref = "org-springframework-security-spring-security-test" }
 org-webjars-bootstrap = { module = "org.webjars:bootstrap", version.ref = "org-webjars-bootstrap" }
 org-webjars-jquery = { module = "org.webjars:jquery", version.ref = "org-webjars-jquery" }
 org-webjars-webjars-locator-core = { module = "org.webjars:webjars-locator-core", version.ref = "org-webjars-webjars-locator-core" }

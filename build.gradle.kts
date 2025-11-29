@@ -5,7 +5,7 @@ plugins {
     id("io.freefair.lombok") version "9.1.0" // Lombok plugin for Gradle
     id("com.adarshr.test-logger") version "4.0.0"
     id("jacoco")
-    id("org.sonarqube") version "6.3.1.5724" // Use the latest version
+    id("org.sonarqube") version "7.1.0.6387" // Use the latest version
 }
 
 sonar {
@@ -44,7 +44,6 @@ dependencies {
     api(libs.javax.xml.bind.jaxb.api)
     api(libs.com.sun.xml.bind.jaxb.core)
     api(libs.com.sun.xml.bind.jaxb.impl)
-    api(libs.org.springframework.boot.spring.boot.starter.security)
     api(libs.io.jsonwebtoken.jjwt)
     api(libs.org.springframework.boot.spring.boot.starter.validation)
     api(libs.commons.httpclient.commons.httpclient)
@@ -74,6 +73,7 @@ dependencies {
 
     runtimeOnly(libs.org.springframework.boot.spring.boot.devtools)
     runtimeOnly(libs.mysql.mysql.connector.java)
+    runtimeOnly(libs.com.h2.h2.db)
 
     testAnnotationProcessor(libs.org.projectlombok.lombok)
 
@@ -85,12 +85,11 @@ dependencies {
 
     testImplementation(libs.net.sourceforge.jwebunit.jwebunit.htmlunit.plugin)
     testImplementation(libs.org.springframework.boot.spring.boot.starter.test)
-    testImplementation(libs.org.springframework.security.spring.security.test)
     testImplementation(libs.org.junit.jupiter)// JUnit 5 API for writing tests
 }
 
 group = "com.siriusxm.example.cart"
-version = "1.1.2-RELEASE"
+version = "1.1.3-RELEASE"
 description = "shoppingcart"
 java.sourceCompatibility = JavaVersion.VERSION_21
 

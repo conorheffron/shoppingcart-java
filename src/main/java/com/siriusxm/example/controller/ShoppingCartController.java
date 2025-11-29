@@ -28,7 +28,7 @@ public class ShoppingCartController {
 
       return new ResponseEntity<>(shoppingCartList, HttpStatus.OK);
     } catch (Exception e) {
-      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
@@ -39,7 +39,7 @@ public class ShoppingCartController {
 
       return new ResponseEntity<>(shoppingCartResponse, HttpStatus.ACCEPTED);
     } catch (Exception e) {
-      return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+      return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 }
