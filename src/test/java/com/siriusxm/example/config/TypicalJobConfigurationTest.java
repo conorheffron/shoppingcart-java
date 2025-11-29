@@ -51,7 +51,7 @@ class TypicalJobConfigurationTest {
     @Test
     void test_getDataSource_success() {
         // given
-        when(dataSourceBuilderMock.driverClassName("com.mysql.cj.jdbc.Driver")).thenReturn(dataSourceBuilderMock);
+        when(dataSourceBuilderMock.driverClassName("org.h2.Driver")).thenReturn(dataSourceBuilderMock);
         BDDMockito.given(dataSourceBuilderMock.url(ArgumentMatchers.any())).willReturn(dataSourceBuilderMock);
         when(dataSourceBuilderMock.username(ArgumentMatchers.any())).thenReturn(dataSourceBuilderMock);
         when(dataSourceBuilderMock.password(ArgumentMatchers.any())).thenReturn(dataSourceBuilderMock);
@@ -61,7 +61,7 @@ class TypicalJobConfigurationTest {
         DataSource result = typicalJobConfiguration.getDataSource();
 
         // then
-        verify(dataSourceBuilderMock).driverClassName("com.mysql.cj.jdbc.Driver");
+        verify(dataSourceBuilderMock).driverClassName("org.h2.Driver");
         dataSourceBuilderMockedStatic.verify(DataSourceBuilder::create);
         verify(dataSourceBuilderMock).build();
 
