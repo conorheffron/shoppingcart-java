@@ -2,7 +2,7 @@ plugins {
     `java-library`
     `maven-publish`
     java
-    id("io.freefair.lombok") version "9.1.0" // Lombok plugin for Gradle
+    id("io.freefair.lombok") version "9.2.0" // Lombok plugin for Gradle
     id("com.adarshr.test-logger") version "4.0.0"
     id("jacoco")
     id("org.sonarqube") version "7.2.2.6593" // Use the latest version
@@ -89,7 +89,7 @@ dependencies {
 }
 
 group = "com.siriusxm.example.cart"
-version = "1.2.3-RELEASE"
+version = "1.2.4-RELEASE"
 description = "shoppingcart"
 java.sourceCompatibility = JavaVersion.VERSION_21
 
