@@ -13,7 +13,7 @@
 <img width="2474" height="1117" alt="image" src="https://github.com/user-attachments/assets/986d48cd-8c20-4fc2-b5bb-f272d6f72296" />
 
 ## Tech:
- - Java 21 (LTS), Maven 3.9, Gradle 8.1, IntelliJ IDEA 2025.2.1 (Community Edition), SonarQube, JaCoCo
+ - Java 21 (LTS), Maven 3.9, Gradle 9, IntelliJ IDEA 2025.2.1 (Community Edition), SonarQube, JaCoCo
 
 ## Test Data
  - [https://conorheffron.github.io/shopping-cart-test-data/products/](https://github.com/conorheffron/shopping-cart-test-data/tree/main/products)
