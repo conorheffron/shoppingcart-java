@@ -2,7 +2,7 @@ plugins {
     `java-library`
     `maven-publish`
     java
-    id("io.freefair.lombok") version "9.2.0" // Lombok plugin for Gradle
+    id("io.freefair.lombok") version "9.5.0" // Lombok plugin for Gradle
     id("com.adarshr.test-logger") version "4.0.0"
     id("jacoco")
     id("org.sonarqube") version "7.2.3.7755" // Use the latest version
