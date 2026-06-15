@@ -5,7 +5,7 @@ plugins {
     id("io.freefair.lombok") version "9.5.0" // Lombok plugin for Gradle
     id("com.adarshr.test-logger") version "4.0.0"
     id("jacoco")
-    id("org.sonarqube") version "7.3.0.8198" // Use the latest version
+    id("org.sonarqube") version "7.3.1.8318" // Use the latest version
 }
 
 sonar {
